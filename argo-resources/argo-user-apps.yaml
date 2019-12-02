@@ -1,0 +1,15 @@
+project: default
+source:
+  repoURL: 'https://github.com/reggie-k/gitops-demo-argocd.git'
+  path: argo-resources/user-apps
+  targetRevision: master
+  directory:
+    recurse: true
+    jsonnet: {}
+destination:
+  server: 'https://kubernetes.default.svc'
+  namespace: argocd
+syncPolicy:
+  automated:
+    selfHeal: true
+
