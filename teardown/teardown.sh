@@ -17,3 +17,6 @@ oc delete clusterrolebindings argocd-server argocd-application-controller
 # Delete Argo CRDs
 oc delete crd applications.argoproj.io
 oc delete crd appprojects.argoproj.io
+
+# Sleep cause it takes time
+sleep 10
