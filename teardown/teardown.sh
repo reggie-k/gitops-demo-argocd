@@ -1,10 +1,11 @@
 #!/bin/sh
-set -e
+#set -e
 
 # Delete the Argo apps first (by deleting the umbrella app)
 oc delete Application.argoproj.io user-apps -n argocd
 
 # Delete the Argo project
+oc delete Appprojects default -n argocd
 
 # Then delete the project itself
 oc delete project argocd
