@@ -1,15 +1,23 @@
-project: default
-source:
-  repoURL: 'https://github.com/reggie-k/gitops-demo-argocd.git'
-  path: argo-resources/user-apps
-  targetRevision: master
-  directory:
-    recurse: true
-    jsonnet: {}
-destination:
-  server: 'https://kubernetes.default.svc'
+apiVersion: argoproj.io/v1alpha1
+kind: Application
+metadata:
+  name: user-apps
   namespace: argocd
-syncPolicy:
-  automated:
-    selfHeal: true
+  finalizers:
+    - resources-finalizer.argocd.argoproj.io
+spec:
+  project: default
+  source:
+    repoURL: 'https://github.com/reggie-k/gitops-demo-argocd.git'
+    path: argo-resources/user-apps
+    targetRevision: master
+    directory:
+      recurse: true
+      jsonnet: {}
+  destination:
+    server: 'https://kubernetes.default.svc'
+    namespace: argocd
+  syncPolicy:
+    automated:
+      selfHeal: true
 
