@@ -16,3 +16,7 @@ sleep 15
 
 # Create the argo user-app 
 oc apply -f ../argo-resources/argo-user-apps.yaml
+
+# Print the initial password (it is the name of the argocd-server pod)
+ARGOCD_SERVER_PASSWORD=$(oc -n argocd get pod -l "app.kubernetes.io/name=argocd-server" -o jsonpath='{.items[*].metadata.name}')
+echo $ARGOCD_SERVER_PASSWORD
