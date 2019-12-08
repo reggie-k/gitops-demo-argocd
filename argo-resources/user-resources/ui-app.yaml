@@ -14,8 +14,6 @@ spec:
     path: ui
     repoURL: 'https://github.com/Dimss/chuck-forum19-demo.git'
     targetRevision: HEAD
-    directory:
-      recurse: false
   syncPolicy:
     automated:
       prune: false
