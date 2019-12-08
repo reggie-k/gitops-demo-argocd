@@ -1,0 +1,22 @@
+apiVersion: argoproj.io/v1alpha1
+kind: Application
+metadata:
+  name: chuck-api
+  namespace: argocd
+spec:
+  project: chuck-project
+  destination:
+    namespace: chuck
+    server: 'https://kubernetes.default.svc'
+  source:
+    path: api
+    repoURL: 'https://github.com/Dimss/chuck-forum19-demo.git'
+    targetRevision: HEAD
+    helm:
+      valueFiles:
+        - values.yaml
+  syncPolicy:
+    automated:
+      prune: true
+      selfHeal: false
+
