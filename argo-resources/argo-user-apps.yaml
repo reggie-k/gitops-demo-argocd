@@ -9,7 +9,7 @@ spec:
   project: default
   source:
     repoURL: 'https://github.com/reggie-k/gitops-demo-argocd.git'
-    path: argo-resources/user-apps
+    path: argo-resources/user-resources
     targetRevision: master
     directory:
       recurse: true
