@@ -1,0 +1,16 @@
+apiVersion: argoproj.io/v1alpha1
+kind: AppProject
+metadata:
+  name: chuck-project
+  namespace: argocd
+spec:
+  destinations:
+  - namespace: chuck
+    server: https://kubernetes.default.svc
+  sourceRepos:
+  - "https://github.com/Dimss/chuck-forum19-demo.git"
+  clusterResourceWhitelist:
+  - group: 'project.openshift.io'
+    kind: Project
+  - group: ''
+    kind: Namespace
