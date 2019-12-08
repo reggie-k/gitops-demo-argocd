@@ -3,7 +3,7 @@
 set -e
 
 # Create a project for Argo to live in
-oc new-project argocd
+oc new-project gitops-infra
 
 # Install Argo
 oc apply -n argocd -f https://raw.githubusercontent.com/argoproj/argo-cd/stable/manifests/install.yaml 
@@ -18,5 +18,5 @@ sleep 15
 oc apply -f ../argo-resources/argo-user-apps.yaml
 
 # Print the initial password (it is the name of the argocd-server pod)
-ARGOCD_SERVER_PASSWORD=$(oc -n argocd get pod -l "app.kubernetes.io/name=argocd-server" -o jsonpath='{.items[*].metadata.name}')
+ARGOCD_SERVER_PASSWORD=$(oc -n gitops-infra get pod -l "app.kubernetes.io/name=argocd-server" -o jsonpath='{.items[*].metadata.name}')
 echo $ARGOCD_SERVER_PASSWORD
