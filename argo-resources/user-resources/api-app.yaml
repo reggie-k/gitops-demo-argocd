@@ -19,6 +19,5 @@ spec:
         - values.yaml
   syncPolicy:
     automated:
-      prune: false
       selfHeal: true
 
