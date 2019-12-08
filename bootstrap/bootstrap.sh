@@ -6,7 +6,7 @@ set -e
 oc new-project gitops-infra
 
 # Install Argo
-oc apply -n argocd -f https://raw.githubusercontent.com/argoproj/argo-cd/stable/manifests/install.yaml 
+oc apply -n gitops-infra -f https://raw.githubusercontent.com/argoproj/argo-cd/stable/manifests/install.yaml 
 
 # Create the Route
 oc apply -f ../argo-resources/route.yaml
