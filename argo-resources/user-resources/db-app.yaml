@@ -3,6 +3,8 @@ kind: Application
 metadata:
   name: chuck-db
   namespace: argocd
+  finalizers:
+    - resources-finalizer.argocd.argoproj.io  
 spec:
   project: chuck-project
   destination:
@@ -16,6 +18,6 @@ spec:
       recurse: false
   syncPolicy:
     automated:
-      prune: true
+      prune: false
       selfHeal: true
 

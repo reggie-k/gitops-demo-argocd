@@ -3,6 +3,8 @@ kind: Application
 metadata:
   name: chuck-api
   namespace: argocd
+  finalizers:
+    - resources-finalizer.argocd.argoproj.io    
 spec:
   project: chuck-project
   destination:
@@ -17,6 +19,6 @@ spec:
         - values.yaml
   syncPolicy:
     automated:
-      prune: true
-      selfHeal: false
+      prune: false
+      selfHeal: true
 
