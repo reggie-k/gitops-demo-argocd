@@ -2,7 +2,7 @@ kind: Route
 apiVersion: route.openshift.io/v1
 metadata:
   name: argocd
-  namespace: gitops-infra
+  namespace: argocd
   labels:
     app.kubernetes.io/component: server
     app.kubernetes.io/name: argocd-server

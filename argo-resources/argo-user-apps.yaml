@@ -2,7 +2,7 @@ apiVersion: argoproj.io/v1alpha1
 kind: Application
 metadata:
   name: user-apps
-  namespace: gitops-infra
+  namespace: argocd
   finalizers:
     - resources-finalizer.argocd.argoproj.io
 spec:
@@ -16,7 +16,7 @@ spec:
       jsonnet: {}
   destination:
     server: 'https://kubernetes.default.svc'
-    namespace: gitops-infra
+    namespace: argocd
   syncPolicy:
     automated:
       selfHeal: true
