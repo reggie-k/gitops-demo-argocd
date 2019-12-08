@@ -13,7 +13,7 @@ spec:
   source:
     path: api
     repoURL: 'https://github.com/Dimss/chuck-forum19-demo.git'
-    targetRevision: HEAD
+    targetRevision: master
     helm:
       valueFiles:
         - values.yaml
