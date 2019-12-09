@@ -1,11 +1,11 @@
 #!/bin/sh
 #set -e
 
-# Delete the Argo apps first (by deleting the umbrella app)
-oc delete Application.argoproj.io user-apps -n argocd
+# Delete the Argo apps first
+oc delete --all Application.argoproj.io -n argocd
 
 # Delete the Argo project
-oc delete Appprojects default -n argocd
+oc delete --all Appprojects.argoproj.io -n argocd
 
 # Will use this for notification that the project got actually deleted
 argocd_proj_exists=`oc get projects | grep argocd | wc -l`
