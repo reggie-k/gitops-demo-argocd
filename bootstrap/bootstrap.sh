@@ -14,8 +14,8 @@ oc apply -f ../argo-resources/argo-route.yaml
 # Create the custom config map with the required exclusions to pass Route sync
 oc apply -f ../argo-resources/argo-cm.yaml
 
-# Create the argo user-app 
-# oc apply -f ../argo-resources/argo-user-apps.yaml
+# Create the chuck argo project 
+oc apply -f ../argo-resources/gitops-resources/chuck-project.yaml
 
 # It takes some for the CRD to become available for creation of CRs, so let's wait till the CRs are created
 #argocd_user_apps_exists=`oc get Application.argoproj.io user-apps -n argocd | wc -l`
