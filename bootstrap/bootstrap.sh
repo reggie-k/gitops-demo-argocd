@@ -11,6 +11,9 @@ oc apply -n argocd -f https://raw.githubusercontent.com/argoproj/argo-cd/stable/
 # Create the Route
 oc apply -f ../argo-resources/route.yaml
 
+# Create the custom config map with the required exclusions to pass Route sync
+oc apply -f ../argo-resources/argo-cm.yaml
+
 # Create the argo user-app 
 oc apply -f ../argo-resources/argo-user-apps.yaml
 
