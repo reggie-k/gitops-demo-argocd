@@ -13,7 +13,7 @@ spec:
   source:
     path: db
     repoURL: 'https://github.com/Dimss/chuck-forum19-demo.git'
-    targetRevision: HEAD
+    targetRevision: master
   syncPolicy:
     automated:
       selfHeal: true
