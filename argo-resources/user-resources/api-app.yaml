@@ -4,7 +4,7 @@ metadata:
   name: chuck-api
   namespace: argocd
   finalizers:
-    - resources-finalizer.argocd.argoproj.io    
+    - resources-finalizer.argocd.argoproj.io
 spec:
   project: chuck-project
   destination:
@@ -14,10 +14,6 @@ spec:
     path: api
     repoURL: 'https://github.com/Dimss/chuck-forum19-demo.git'
     targetRevision: master
-    helm:
-      valueFiles:
-        - values.yaml
   syncPolicy:
     automated:
       selfHeal: true
-
