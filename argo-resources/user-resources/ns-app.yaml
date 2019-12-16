@@ -1,0 +1,22 @@
+apiVersion: argoproj.io/v1alpha1
+kind: Application
+metadata:
+  name: chuck-ns
+  namespace: argocd
+  finalizers:
+    - resources-finalizer.argocd.argoproj.io
+  annotations:
+    argocd.argoproj.io/sync-wave: "-1"  
+spec:
+  project: chuck-project
+  destination:
+    namespace: chuck
+    server: 'https://kubernetes.default.svc'
+  source:
+    path: project
+    repoURL: 'https://github.com/Dimss/chuck-forum19-demo.git'
+    targetRevision: master
+  syncPolicy:
+    automated:
+      selfHeal: true
+
